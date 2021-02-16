@@ -1,5 +1,5 @@
 %%raw(`
-import './index.css';
+import "./index.css";
 `)
 
 @module("./reportWebVitals") external reportWebVitals: unit => unit = "default"

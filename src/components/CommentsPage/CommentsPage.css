@@ -1,0 +1,29 @@
+.secondline {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.a {
+  color: black;
+  text-decoration: none;
+}
+
+.commentheader {
+  color: #999999;
+  margin-bottom: 4px;
+  display: flex;
+}
+
+.comments {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.commentcontainer {
+  margin-top: 12px;
+}
+
+.feather {
+  margin-right: 4px;
+}

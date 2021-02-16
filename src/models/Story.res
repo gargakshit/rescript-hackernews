@@ -68,7 +68,7 @@ module Decoder = {
     }
 
   let comment = (json: Js.Json.t): comment => {
-    let deletedMaybe = field("deleted", optional(bool), json)
+    let deletedMaybe = optional(field("deleted", bool), json)
     let deleted = switch deletedMaybe {
     | None => false
     | Some(v) => v == true
@@ -83,8 +83,8 @@ module Decoder = {
         id: field("id", int, json),
         by: field("by", string, json),
         parent: field("parent", int, json),
-        kids: field("kids", optional(idsArray), json),
-        text: field("text", optional(string), json),
+        kids: optional(field("kids", idsArray), json),
+        text: optional(field("text", string), json),
         time: field("time", int, json),
       })
     }
@@ -100,7 +100,7 @@ module Decoder = {
     descendentIds: field("descendentIds", idsArray, json),
     comments: field("comments", commentsArray, json),
     id: field("id", int, json),
-    kids: field("kids", optional(idsArray), json),
+    kids: optional(field("kids", idsArray), json),
     score: field("score", int, json),
     time: field("time", int, json),
     title: field("title", string, json),
@@ -126,7 +126,7 @@ let fetchStories = (callback: fetchStoryCallback): unit => {
 type fetchStoryWithCommentsCallback = storyWithComments => unit
 let buildStoryWithCommentsUrl = (id: string) =>
   `https://serverless-api.hackernewsmobile.com/stories/${id}.json`
-let fetchStoryWithComments = (id, callback: fetchStoryWithCommentsCallback) => {
+let fetchStoryWithComments = (id: string, callback: fetchStoryWithCommentsCallback): unit => {
   Fetch.fetch(buildStoryWithCommentsUrl(id))
   ->then(res => {
     Fetch.Response.json(res)
