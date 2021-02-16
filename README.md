@@ -1,4 +1,4 @@
-# ReScript Hacker New
+# ReScript Hacker News
 
 Hacker news client built with [ReScript](https://rescript-lang.org) and [react](https://reactjs.org)
 
