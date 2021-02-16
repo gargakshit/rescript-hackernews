@@ -13,9 +13,6 @@ type story = {
 
 type stories = array<story>
 
-@scope("JSON") @val
-external parseJsonIntoStories: string => stories = "parse"
-
 module Decoder = {
   let story = (json): story => {
     {
