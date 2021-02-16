@@ -12,9 +12,11 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start:cra": "react-scripts start",
     "start:res": "bsb -make-world -w",
-    "build": "react-scripts build",
+    "build": "yarn build:res && yarn build:cra",
+    "build:cra": "react-scripts build",
+    "build:res": "bsb -make-world",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
