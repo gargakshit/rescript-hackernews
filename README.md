@@ -2,6 +2,10 @@
 
 Hacker news client built with [ReScript](https://rescript-lang.org) and [react](https://reactjs.org)
 
+## Demo
+
+A demo is available [here](https://hn.akshit.tech)
+
 ## Building
 
 ### Requirements:

@@ -15,7 +15,7 @@
     "start:cra": "react-scripts start",
     "start:res": "bsb -make-world -w",
     "build": "yarn build:res && yarn build:cra",
-    "build:cra": "react-scripts build",
+    "build:cra": "cross-env CI=false react-scripts build",
     "build:res": "bsb -make-world",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,6 +44,7 @@
     "@ryyppy/rescript-promise": "^1.0.0",
     "bs-fetch": "^0.6.2",
     "bs-platform": "^9.0.0",
+    "cross-env": "^7.0.3",
     "gentype": "^3.43.0"
   }
 }
