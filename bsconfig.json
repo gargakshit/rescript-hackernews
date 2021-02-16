@@ -23,5 +23,10 @@
     "language": "typescript"
   },
 
-  "bs-dependencies": ["@rescript/react", "bs-fetch"]
+  "bs-dependencies": [
+    "@rescript/react",
+    "bs-fetch",
+    "@ryyppy/rescript-promise",
+    "@glennsl/bs-json"
+  ]
 }
