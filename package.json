@@ -44,6 +44,7 @@
     "@ryyppy/rescript-promise": "^1.0.0",
     "bs-fetch": "^0.6.2",
     "bs-platform": "^9.0.0",
+    "bs-webapi": "^0.19.1",
     "cross-env": "^7.0.3",
     "gentype": "^3.43.0"
   }

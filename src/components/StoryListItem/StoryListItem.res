@@ -30,13 +30,26 @@ module CommentsButton = {
 let make = (~story: Story.story, ~index: int) => {
   let time = Time.fromNow(story.time)
 
-  <div className="storyflex">
-    <article className="storyitem">
-      <a className="storyitem--link" href={story.url}>
+  let buildHeading = () => {
+    switch story.url {
+    | None =>
+      <span className="storyitem--link">
+        {(index + 1)->Int.toString->React.string}
+        {". "->React.string}
+        <span className="storyitem--link_title"> {story.title->React.string} </span>
+      </span>
+    | Some(url) =>
+      <a className="storyitem--link" href={url}>
         {(index + 1)->Int.toString->React.string}
         {". "->React.string}
         <span className="storyitem--link_title"> {story.title->React.string} </span>
       </a>
+    }
+  }
+
+  <div className="storyflex">
+    <article className="storyitem">
+      {buildHeading()}
       <section className="storyitem--secondrow">
         <span>
           <span className="storyitem--secondrow_points">

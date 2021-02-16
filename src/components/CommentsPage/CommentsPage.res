@@ -20,13 +20,20 @@ let make = (~id: string) => {
 
   switch story {
   | None => <div> {"Loading"->React.string} </div>
-  | Some(story) =>
-    <div>
-      <a href={story.url} className="a"> <h2> {story.title->React.string} </h2> </a>
-      <span className="secondline">
-        {`${story.score->Int.toString} points | submitted ${time}`->React.string}
-      </span>
-      <CommentsList story />
-    </div>
+  | Some(story) => {
+      let buildHeading = () => {
+        switch story.url {
+        | None => <h2> {story.title->React.string} </h2>
+        | Some(url) => <a href={url} className="a"> <h2> {story.title->React.string} </h2> </a>
+        }
+      }
+      <div>
+        {buildHeading()}
+        <span className="secondline">
+          {`${story.score->Int.toString} points | submitted ${time}`->React.string}
+        </span>
+        <CommentsList story />
+      </div>
+    }
   }
 }

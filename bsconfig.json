@@ -27,6 +27,7 @@
     "@rescript/react",
     "bs-fetch",
     "@ryyppy/rescript-promise",
-    "@glennsl/bs-json"
+    "@glennsl/bs-json",
+    "bs-webapi"
   ]
 }

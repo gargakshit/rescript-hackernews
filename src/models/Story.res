@@ -6,7 +6,7 @@ type story = {
   by: string,
   id: int,
   title: string,
-  url: string,
+  url: option<string>,
   score: int,
   descendants: int,
   time: int,
@@ -39,7 +39,7 @@ type storyWithComments = {
   score: int,
   time: int,
   title: string,
-  url: string,
+  url: option<string>,
   descendentIds: array<int>,
   comments: commentsMap,
 }
@@ -50,7 +50,7 @@ module Decoder = {
       by: field("by", string, json),
       id: field("id", int, json),
       title: field("title", string, json),
-      url: field("url", string, json),
+      url: optional(field("url", string), json),
       score: field("score", int, json),
       descendants: field("descendants", int, json),
       time: field("time", int, json),
@@ -104,13 +104,15 @@ module Decoder = {
     score: field("score", int, json),
     time: field("time", int, json),
     title: field("title", string, json),
-    url: field("url", string, json),
+    url: optional(field("url", string), json),
   }
 }
 
 type fetchStoryCallback = stories => unit
-let fetchStories = (callback: fetchStoryCallback): unit => {
-  Fetch.fetch("https://serverless-api.hackernewsmobile.com/topstories-25-0.json")
+let fetchStories = (callback: fetchStoryCallback, page: int): unit => {
+  Fetch.fetch(
+    `https://serverless-api.hackernewsmobile.com/topstories-25-${page->Int.toString}.json`,
+  )
   ->then(res => {
     Fetch.Response.json(res)
   })
