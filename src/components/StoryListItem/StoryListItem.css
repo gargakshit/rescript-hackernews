@@ -22,6 +22,8 @@
   align-items: flex-end;
 
   font-size: 1rem;
+
+  cursor: pointer;
 }
 
 .storyitem--secondrow_points {

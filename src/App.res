@@ -4,6 +4,7 @@ let make = () => {
 
   let component = switch url.path {
   | list{} => <Home />
+  | list{"comments", id} => <CommentsPage id />
   | _ => <div> {"404"->React.string} </div>
   }
 

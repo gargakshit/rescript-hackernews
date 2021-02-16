@@ -14,7 +14,9 @@ let make = (~story: Story.story, ~index: int) => {
       {". "->React.string}
       <span className="storyitem--link_title"> {story.title->React.string} </span>
     </a>
-    <section className="storyitem--secondrow">
+    <section
+      className="storyitem--secondrow"
+      onClick={_ => RescriptReactRouter.push(`/comments/${story.id->Int.toString}`)}>
       <span>
         <span className="storyitem--secondrow_points">
           {story.score->Int.toString->React.string}
